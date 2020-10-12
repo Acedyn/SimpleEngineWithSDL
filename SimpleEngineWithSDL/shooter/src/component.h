@@ -1,6 +1,5 @@
 #pragma once
-
-class Actor;
+#include "actor.h"
 
 class Component
 {
