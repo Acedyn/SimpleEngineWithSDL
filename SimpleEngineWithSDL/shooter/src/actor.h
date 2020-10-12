@@ -18,7 +18,7 @@ public:
 	Actor(const Actor&) = delete;
 	Actor& operator=(const Actor&) = delete;
 
-	Game& getFrame() const { return game; }
+	Game& getGame() const { return game; }
 	const ActorState getState() const { return state; }
 	const Vector2 getPosition() const { return position; }
 	const float getScale() const { return scale; }

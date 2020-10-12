@@ -4,6 +4,7 @@
 #include "vector2.h"
 #include "actor.h"
 #include "timer.h"
+#include "spriteComponent.h"
 #include <vector>
 
 class Game
@@ -33,6 +34,7 @@ public:
 	void unload();
 	void close();
 
+	Renderer& getRenderer() { return renderer; }
 	void addActor(Actor* actor);
 	void removeActor(Actor* actor);
 

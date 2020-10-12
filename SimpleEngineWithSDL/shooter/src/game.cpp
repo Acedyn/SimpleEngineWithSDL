@@ -123,13 +123,17 @@ void Game::render()
 {
 	renderer.beginDraw();
 
+	renderer.draw();
 
 	renderer.endDraw();
 }
 
 void Game::load()
 {
-	Assets::loadTexture(renderer, "Res\Ship01.png", "ship01");
+	Assets::loadTexture(renderer, "res\textures\Ship01.png", "ship01");
+	Actor* actor = new Actor();
+	SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("ship01"));
+	actor->setPosition(Vector2{ 100, 100 });
 }
 
 void Game::unload()
