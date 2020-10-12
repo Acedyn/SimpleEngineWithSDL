@@ -75,8 +75,47 @@ void Game::processInput()
 
 void Game::update(float dt)
 {
-	
+	isUpdatingActors = true;
+	for (auto actor : actors)
+	{
+		actor->update(dt);
+	}
+	isUpdatingActors = false;
 
+	for (auto pendingActor : pendingActors)
+	{
+		actors.emplace_back(pendingActor);
+	}
+	pendingActors.clear();
+
+	std::vector<Actor*> deadActors;
+	for (auto actor : actors)
+	{
+		if (actor->getState() == Actor::ActorState::Dead)
+		{
+			deadActors.emplace_back(actor);
+		}
+	}
+	for (auto deadActor : deadActors)
+	{
+		delete deadActor;
+	}
+}
+
+void Game::removeActor(Actor* actor)
+{
+	auto iter = std::find(begin(pendingActors), end(pendingActors), actor);
+	if (iter != end(pendingActors))
+	{
+		std::iter_swap(iter, end(pendingActors) - 1);
+		pendingActors.pop_back();
+	}
+	iter = std::find(begin(actors), end(actors), actor);
+	if (iter != end(actors))
+	{
+		std::iter_swap(iter, end(actors) - 1);
+		actors.pop_back();
+	}
 }
 
 void Game::render()

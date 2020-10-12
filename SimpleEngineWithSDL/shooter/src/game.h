@@ -1,9 +1,10 @@
 #pragma once
-
 #include "window.h"
 #include "renderer.h"
 #include "vector2.h"
+#include "actor.h"
 #include "timer.h"
+#include <vector>
 
 class Game
 {
@@ -21,13 +22,17 @@ public:
 
 private:
 	Game() :
-		isRunning(true)
+		isRunning(true),
+		isUpdatingActors(false)
 	{};
 
 public:
 	bool initialize();
 	void loop();
 	void close();
+
+	void addActor(Actor* actor);
+	void removeActor(Actor* actor);
 
 private:
 	void processInput();
@@ -37,5 +42,9 @@ private:
 	Window window;
 	Renderer renderer;
 	bool isRunning;
+
+	bool isUpdatingActors;
+	std::vector<Actor*> actors;
+	std::vector<Actor*> pendingActors;
 
 };
