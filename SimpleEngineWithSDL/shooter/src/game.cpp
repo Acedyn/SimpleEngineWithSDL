@@ -1,5 +1,6 @@
 #include "game.h"
 #include "log.h"
+#include "assets.h"
 #include <string>
 
 bool Game::initialize()
@@ -126,3 +127,17 @@ void Game::render()
 	renderer.endDraw();
 }
 
+void Game::load()
+{
+	Assets::loadTexture(renderer, "Res\Ship01.png", "ship01");
+}
+
+void Game::unload()
+{
+	while (!actors.empty())
+	{
+		delete actors.back();
+	}
+
+	Assets::clear();
+}

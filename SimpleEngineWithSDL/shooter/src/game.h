@@ -28,7 +28,9 @@ private:
 
 public:
 	bool initialize();
+	void load();
 	void loop();
+	void unload();
 	void close();
 
 	void addActor(Actor* actor);
@@ -44,7 +46,7 @@ private:
 	bool isRunning;
 
 	bool isUpdatingActors;
-	std::vector<Actor*> actors;
+	std::vector<Actor*>  actors;
 	std::vector<Actor*> pendingActors;
 
 };
