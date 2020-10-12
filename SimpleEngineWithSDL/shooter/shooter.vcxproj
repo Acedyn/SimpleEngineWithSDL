@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\actor.cpp" />
+    <ClCompile Include="src\assets.cpp" />
     <ClCompile Include="src\component.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\log.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\actor.h" />
+    <ClInclude Include="src\assets.h" />
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\log.h" />
