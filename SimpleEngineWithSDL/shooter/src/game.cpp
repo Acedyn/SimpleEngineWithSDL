@@ -103,6 +103,18 @@ void Game::update(float dt)
 	}
 }
 
+void Game::addActor(Actor* actor)
+{
+	if (isUpdatingActors)
+	{
+		pendingActors.emplace_back(actor);
+	}
+	else
+	{
+		actors.emplace_back(actor);
+	}
+}
+
 void Game::removeActor(Actor* actor)
 {
 	auto iter = std::find(begin(pendingActors), end(pendingActors), actor);
@@ -130,7 +142,7 @@ void Game::render()
 
 void Game::load()
 {
-	Assets::loadTexture(renderer, "res\textures\Ship01.png", "ship01");
+	Assets::loadTexture(renderer, "../res/textures/Ship01.png", "ship01");
 	Actor* actor = new Actor();
 	SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("ship01"));
 	actor->setPosition(Vector2{ 100, 100 });

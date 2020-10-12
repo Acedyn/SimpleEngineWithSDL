@@ -24,7 +24,7 @@ bool Texture::load(Renderer& rendererP, const std::string& fileNameP)
 	SDL_Surface* surf = IMG_Load(fileName.c_str());
 	if (!surf)
 	{
-		Log::error(LogCategory::Application, "Failed to load texture file" + fileName);
+		Log::error(LogCategory::Application, "Failed to load texture file " + fileName);
 		return false;
 	}
 	width = surf->w;
