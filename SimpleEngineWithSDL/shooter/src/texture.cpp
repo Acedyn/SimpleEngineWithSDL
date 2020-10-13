@@ -18,6 +18,7 @@ void Texture::unload()
 	}
 }
 
+// Create the SDL_Surface and create a texture from it to the renderer
 bool Texture::load(Renderer& rendererP, const std::string& fileNameP)
 {
 	fileName = fileNameP;

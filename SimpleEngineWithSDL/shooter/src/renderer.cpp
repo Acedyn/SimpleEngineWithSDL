@@ -54,6 +54,7 @@ void Renderer::close()
 	SDL_DestroyRenderer(SDLRenderer);
 }
 
+// Query for drawing all the sprites of the sprite array
 void Renderer::drawSprites()
 {
 	for (auto sprite : sprites)
@@ -62,21 +63,26 @@ void Renderer::drawSprites()
 	}
 }
 
+// Draw the given srite
 void Renderer::drawSprite(const Actor& actor, const class Texture& texture, Rectangle srcRect, Vector2 origin, Flip flip) const
 {
+	// Create an SDL_rect and get the actor's transfrom
 	SDL_Rect dstRect;
 	Vector2 position = actor.getPosition();
 	float rotation = actor.getRotation();
 	float scale = actor.getScale();
 
+	// Set the SDL_rect width according the the actor transform
 	dstRect.w = static_cast<int>(texture.getWidth() * scale);
 	dstRect.h = static_cast<int>(texture.getHeight() * scale);
 	dstRect.x = static_cast<int>(position.x = origin.x);
 	dstRect.y = static_cast<int>(position.y = origin.y);
 
+	
 	SDL_Rect* srcSDL = nullptr;
 	if (srcRect != Rectangle::nullRect)
 	{
+		Log::info("WTF\n");
 		srcSDL = new SDL_Rect{
 			Maths::round(srcRect.x),
 			Maths::round(srcRect.y),
@@ -84,7 +90,7 @@ void Renderer::drawSprite(const Actor& actor, const class Texture& texture, Rect
 			Maths::round(srcRect.height)
 		};
 	}
-
+	// Apply the texture to to rect
 	SDL_RenderCopyEx(
 		SDLRenderer,
 		texture.toSDLTexture(),

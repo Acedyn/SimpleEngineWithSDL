@@ -4,6 +4,7 @@
 
 std::map<std::string, Texture> Assets::textures;
 
+// Query the texture loading to the renderer and add it to the texture map
 Texture Assets::loadTexture(Renderer& renderer, const std::string fileName, const std::string& name)
 {
 	textures[name] = loadTextureFromFile(renderer, fileName.c_str());
@@ -30,6 +31,7 @@ void Assets::clear()
 	textures.clear();
 }
 
+// Create a texture and link it to the renderer
 Texture Assets::loadTextureFromFile(Renderer& renderer, const std::string& fileName)
 {
 	Texture texture;

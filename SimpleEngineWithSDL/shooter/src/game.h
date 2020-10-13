@@ -10,6 +10,7 @@
 class Game
 {
 public:
+	// Singleton function to create the game
 	static Game& instance()
 	{
 		static Game inst;

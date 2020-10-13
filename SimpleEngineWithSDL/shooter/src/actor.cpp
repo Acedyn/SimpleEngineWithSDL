@@ -13,6 +13,7 @@ Actor::Actor() :
 	game.addActor(this);
 }
 
+// Call all components destructors and ask to the game to remove it from the actors array
 Actor::~Actor()
 {
 	game.removeActor(this);
@@ -59,6 +60,7 @@ void Actor::updateActor(float dt)
 
 }
 
+// Add a component to the component array. Called by the component constructor
 void Actor::addComponent(Component* component)
 {
 	int componentOrder = component->getUpdateOrder();
@@ -74,6 +76,7 @@ void Actor::addComponent(Component* component)
 	components.insert(iter, component);
 }
 
+// Remove a component to the component array. Called by the component destructor
 void Actor::removeComponent(Component* component)
 {
 	auto iter = std::find(begin(components), end(components), component);

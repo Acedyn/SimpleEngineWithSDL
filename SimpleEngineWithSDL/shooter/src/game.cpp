@@ -77,19 +77,23 @@ void Game::processInput()
 void Game::update(float dt)
 {
 	isUpdatingActors = true;
+	// For each actors ask for update
 	for (auto actor : actors)
 	{
 		actor->update(dt);
 	}
 	isUpdatingActors = false;
 
+	// For each penging actors add to the actors array
 	for (auto pendingActor : pendingActors)
 	{
 		actors.emplace_back(pendingActor);
 	}
+	// Empty the pending actors array
 	pendingActors.clear();
 
 	std::vector<Actor*> deadActors;
+	// For each actors if it is dead add it to the dead actors array
 	for (auto actor : actors)
 	{
 		if (actor->getState() == Actor::ActorState::Dead)
@@ -97,12 +101,14 @@ void Game::update(float dt)
 			deadActors.emplace_back(actor);
 		}
 	}
+	// Delete all the actors of the dead array
 	for (auto deadActor : deadActors)
 	{
 		delete deadActor;
 	}
 }
 
+// Add an actor to the actors array. Called by the actor constructor
 void Game::addActor(Actor* actor)
 {
 	if (isUpdatingActors)
@@ -115,6 +121,7 @@ void Game::addActor(Actor* actor)
 	}
 }
 
+// Remove an actor to the actors array. Called by the actor destructor
 void Game::removeActor(Actor* actor)
 {
 	auto iter = std::find(begin(pendingActors), end(pendingActors), actor);
@@ -142,8 +149,11 @@ void Game::render()
 
 void Game::load()
 {
+	// Add a texture to the Assets class
 	Assets::loadTexture(renderer, "../res/textures/Ship01.png", "ship01");
+	// Create a Actor that will contain the SpriteComponent
 	Actor* actor = new Actor();
+	// Create a SpriteComponent that will be linked to the texture
 	SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("ship01"));
 	actor->setPosition(Vector2{ 100, 100 });
 }

@@ -8,7 +8,7 @@
 class Assets
 {
 public:
-	static std::map < std::string, Texture> textures;
+	static std::map <std::string, Texture> textures;
 
 	static Texture loadTexture(Renderer& renderer, const std::string fileName, const std::string& name);
 	static Texture& getTexture(const std::string& name);

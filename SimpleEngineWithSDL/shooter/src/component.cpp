@@ -1,5 +1,6 @@
 #include "component.h"
 
+// Contructor also query to its owner to add it to its component array
 Component::Component(Actor* ownerP, int updateOrderP) :
 	owner(*ownerP),
 	updateOrder(updateOrderP)
