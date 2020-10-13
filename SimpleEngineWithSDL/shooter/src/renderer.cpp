@@ -75,14 +75,13 @@ void Renderer::drawSprite(const Actor& actor, const class Texture& texture, Rect
 	// Set the SDL_rect width according the the actor transform
 	dstRect.w = static_cast<int>(texture.getWidth() * scale);
 	dstRect.h = static_cast<int>(texture.getHeight() * scale);
-	dstRect.x = static_cast<int>(position.x = origin.x);
-	dstRect.y = static_cast<int>(position.y = origin.y);
+	dstRect.x = static_cast<int>(position.x - origin.x);
+	dstRect.y = static_cast<int>(position.y - origin.y);
 
 	
 	SDL_Rect* srcSDL = nullptr;
 	if (srcRect != Rectangle::nullRect)
 	{
-		Log::info("WTF\n");
 		srcSDL = new SDL_Rect{
 			Maths::round(srcRect.x),
 			Maths::round(srcRect.y),

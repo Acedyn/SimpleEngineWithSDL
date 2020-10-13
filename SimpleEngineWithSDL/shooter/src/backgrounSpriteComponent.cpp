@@ -34,7 +34,7 @@ void BackgroundSpriteComponent::draw(Renderer& renderer)
 	for (auto& bg : textures)
 	{
 		owner.setPosition(Vector2(bg.offset.x, bg.offset.y));
-		renderer.drawSprite(owner, bg.texture, Rectangle::nullRect, Vector2::zero, Renderer::Flip::None);
+		renderer.drawSprite(owner, bg.texture, Rectangle::nullRect, bg.offset, Renderer::Flip::None);
 	}
 }
 

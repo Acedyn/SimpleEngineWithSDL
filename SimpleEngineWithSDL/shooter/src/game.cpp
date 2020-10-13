@@ -1,6 +1,9 @@
 #include "game.h"
 #include "log.h"
 #include "assets.h"
+#include "animSpriteComponent.h"
+#include "spriteComponent.h"
+#include "backgroundSpriteComponent.h"
 #include <string>
 
 bool Game::initialize()
@@ -151,11 +154,45 @@ void Game::load()
 {
 	// Add a texture to the Assets class
 	Assets::loadTexture(renderer, "../res/textures/Ship01.png", "ship01");
+	Assets::loadTexture(renderer, "../res/textures/Ship02.png", "ship02");
+	Assets::loadTexture(renderer, "../res/textures/Ship03.png", "ship03");
+	Assets::loadTexture(renderer, "../res/textures/Ship04.png", "ship04");
+	Assets::loadTexture(renderer, "../res/textures/Farback01.png", "farback01");
+	Assets::loadTexture(renderer, "../res/textures/Farback02.png", "farback02");
+	Assets::loadTexture(renderer, "../res/textures/Stars.png", "stars");
+
 	// Create a Actor that will contain the SpriteComponent
-	Actor* actor = new Actor();
+	//Actor* actor = new Actor();
 	// Create a SpriteComponent that will be linked to the texture
-	SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("ship01"));
-	actor->setPosition(Vector2{ 100, 100 });
+	//SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("ship01"));
+	//actor->setPosition(Vector2{ 100, 100 });
+
+	// Animated sprite
+	std::vector<Texture*> animTexture{
+		&Assets::getTexture("ship01"),
+		&Assets::getTexture("ship02"),
+		&Assets::getTexture("ship03"),
+		&Assets::getTexture("ship04") };
+	Actor* ship = new Actor();
+	AnimSpriteComponent* animatedSprite = new AnimSpriteComponent(ship, animTexture);
+	ship->setPosition(Vector2{ 100, 300 });
+
+	//Background
+	std::vector<Texture*> backgroundCloseTextures{
+		&Assets::getTexture("stars"),
+		&Assets::getTexture("stars") };
+	Actor* backgroundClose = new Actor;
+	BackgroundSpriteComponent* backgroundCloseSprite = new BackgroundSpriteComponent(backgroundClose, backgroundCloseTextures, 50);
+	backgroundCloseSprite->setScrollSpeed(-100.0f);
+
+	//Stars
+	std::vector<Texture*> backgroundFarTextures{
+		&Assets::getTexture("farback01"),
+		&Assets::getTexture("farback02") };
+	Actor* backgroundFar = new Actor;
+	BackgroundSpriteComponent* backgroundFarSprite = new BackgroundSpriteComponent(backgroundFar, backgroundFarTextures);
+	backgroundFarSprite->setScrollSpeed(-200.0f);
+
 }
 
 void Game::unload()

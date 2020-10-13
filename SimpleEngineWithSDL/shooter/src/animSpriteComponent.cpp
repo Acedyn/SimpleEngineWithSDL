@@ -1,9 +1,10 @@
 #include "animSpriteComponent.h"
+#include "log.h"
 
 AnimSpriteComponent::AnimSpriteComponent(Actor* ownerP, const std::vector<Texture*>& texturesP, int drawOrderP) :
 	SpriteComponent(ownerP, *texturesP[0], drawOrderP),
 	currentFrame(0.0f),
-	animFPS(24.0f)
+	animFPS(0.02f)
 {
 	setAnimTextures(texturesP);
 }
