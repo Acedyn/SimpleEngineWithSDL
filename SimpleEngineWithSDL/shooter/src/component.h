@@ -1,5 +1,6 @@
 #pragma once
 #include "actor.h"
+#include <SDL_stdinc.h>
 
 class Component
 {
@@ -13,6 +14,7 @@ public:
 	int getUpdateOrder() const { return updateOrder; }
 
 	virtual void update(float dt);
+	virtual void processInput(const Uint8* keyState);
 
 protected:
 	Actor& owner;

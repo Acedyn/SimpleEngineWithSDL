@@ -76,6 +76,13 @@ void Game::processInput()
 		isRunning = false;
 	}
 
+	// Actor input
+	isUpdatingActors = true;
+	for (auto actor : actors)
+	{
+		actor->processInput(keyboardState);
+	}
+	isUpdatingActors = false;
 }
 
 void Game::update(float dt)
