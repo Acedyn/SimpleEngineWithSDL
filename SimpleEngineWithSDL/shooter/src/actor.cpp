@@ -24,6 +24,11 @@ Actor::~Actor()
 	}
 }
 
+void Actor::setState(ActorState stateP)
+{
+	state = stateP;
+}
+
 void Actor::setPosition(Vector2 positionP)
 {
 	position = positionP;

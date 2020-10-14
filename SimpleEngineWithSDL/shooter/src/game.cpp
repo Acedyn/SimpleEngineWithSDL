@@ -204,9 +204,9 @@ void Game::load()
 		&Assets::getTexture("ship02"),
 		&Assets::getTexture("ship03"),
 		&Assets::getTexture("ship04") };
-	Actor* ship = new Actor();
-	AnimSpriteComponent* animatedSprite = new AnimSpriteComponent(ship, animTexture);
-	ship->setPosition(Vector2{ 100, 500 });
+	//Actor* ship = new Actor();
+	//AnimSpriteComponent* animatedSprite = new AnimSpriteComponent(ship, animTexture);
+	//ship->setPosition(Vector2{ 100, 500 });
 
 	//Background
 	std::vector<Texture*> backgroundCloseTextures{

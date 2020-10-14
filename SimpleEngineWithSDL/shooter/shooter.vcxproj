@@ -154,6 +154,7 @@
     <ClCompile Include="src\component.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\inputComponent.cpp" />
+    <ClCompile Include="src\laser.cpp" />
     <ClCompile Include="src\log.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\moveComponent.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\inputComponent.h" />
+    <ClInclude Include="src\laser.h" />
     <ClInclude Include="src\log.h" />
     <ClInclude Include="src\moveComponent.h" />
     <ClInclude Include="src\random.h" />
