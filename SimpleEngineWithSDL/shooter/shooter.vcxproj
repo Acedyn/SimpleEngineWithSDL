@@ -150,6 +150,7 @@
     <ClCompile Include="src\assets.cpp" />
     <ClCompile Include="src\astroid.cpp" />
     <ClCompile Include="src\backgrounSpriteComponent.cpp" />
+    <ClCompile Include="src\circleCollision.cpp" />
     <ClCompile Include="src\component.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\inputComponent.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="src\assets.h" />
     <ClInclude Include="src\astroid.h" />
     <ClInclude Include="src\backgroundSpriteComponent.h" />
+    <ClInclude Include="src\circleCollisionComponent.h" />
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\inputComponent.h" />
