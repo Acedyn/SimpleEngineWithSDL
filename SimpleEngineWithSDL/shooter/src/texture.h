@@ -15,6 +15,7 @@ public:
 
 	inline int getWidth() const { return width; }
 	inline int getHeight() const { return height; }
+	std::string getName() const { return fileName; }
 
 private:
 	std::string fileName;

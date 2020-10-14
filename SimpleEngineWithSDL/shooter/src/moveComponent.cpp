@@ -2,6 +2,7 @@
 #include "Maths.h"
 #include "Actor.h"
 #include "Window.h"
+#include "log.h"
 
 MoveComponent::MoveComponent(Actor* ownerP, int updateOrderP)
 	: Component(ownerP, updateOrderP), forwardSpeed(0.0f), angularSpeed(0.0f) {}

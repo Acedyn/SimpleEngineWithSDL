@@ -95,7 +95,7 @@ void Renderer::drawSprite(const Actor& actor, const class Texture& texture, Rect
 		texture.toSDLTexture(),
 		srcSDL,
 		&dstRect,
-		-Maths::toDegrees(rotation),
+		-rotation,
 		nullptr,
 		SDL_FLIP_NONE);
 }

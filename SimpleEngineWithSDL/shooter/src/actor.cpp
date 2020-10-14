@@ -89,7 +89,7 @@ void Actor::removeComponent(Component* component)
 
 Vector2 Actor::getForward() const
 {
-	return Vector2(Maths::cos(rotation), -Maths::sin(rotation));
+	return Vector2(Maths::cos(Maths::toRadians(rotation)), -Maths::sin(Maths::toRadians(rotation)));
 }
 
 void Actor::processInput(const Uint8* keyState)

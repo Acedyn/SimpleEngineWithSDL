@@ -4,6 +4,7 @@
 #include "animSpriteComponent.h"
 #include "spriteComponent.h"
 #include "backgroundSpriteComponent.h"
+#include "ship.h"
 #include "astroid.h"
 #include <string>
 
@@ -169,6 +170,7 @@ void Game::load()
 	Assets::loadTexture(renderer, "../res/textures/Farback02.png", "farback02");
 	Assets::loadTexture(renderer, "../res/textures/Stars.png", "stars");
 	Assets::loadTexture(renderer, "../res/textures/Astroid.png", "astroid");
+	Assets::loadTexture(renderer, "../res/textures/Ship.png", "ship");
 
 	// Create a Actor that will contain the SpriteComponent
 	//Actor* actor = new Actor();
@@ -184,7 +186,7 @@ void Game::load()
 		&Assets::getTexture("ship04") };
 	Actor* ship = new Actor();
 	AnimSpriteComponent* animatedSprite = new AnimSpriteComponent(ship, animTexture);
-	ship->setPosition(Vector2{ 100, 300 });
+	ship->setPosition(Vector2{ 100, 500 });
 
 	//Background
 	std::vector<Texture*> backgroundCloseTextures{
@@ -201,6 +203,9 @@ void Game::load()
 	Actor* backgroundFar = new Actor;
 	BackgroundSpriteComponent* backgroundFarSprite = new BackgroundSpriteComponent(backgroundFar, backgroundFarTextures);
 	backgroundFarSprite->setScrollSpeed(-0.2f);
+
+	Ship* shipPlayer = new Ship();
+	shipPlayer->setPosition(Vector2(100.0f, 300.0f));
 
 	const int astroidNumber = 8;
 	for (int i = 0; i < astroidNumber; ++i)
