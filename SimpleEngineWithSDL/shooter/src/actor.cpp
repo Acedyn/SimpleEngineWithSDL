@@ -1,6 +1,7 @@
 #include "actor.h"
 #include "game.h"
 #include "component.h"
+#include "maths.h"
 #include <algorithm>
 
 Actor::Actor() :
@@ -86,3 +87,7 @@ void Actor::removeComponent(Component* component)
 	}
 }
 
+Vector2 Actor::getForward() const
+{
+	return Vector2(Maths::cos(rotation), -Maths::sin(rotation));
+}

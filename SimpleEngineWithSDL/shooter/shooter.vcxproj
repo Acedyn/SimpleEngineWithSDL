@@ -153,6 +153,7 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\log.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\moveComponent.cpp" />
     <ClCompile Include="src\random.cpp" />
     <ClCompile Include="src\rectangle.cpp" />
     <ClCompile Include="src\renderer.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\log.h" />
+    <ClInclude Include="src\moveComponent.h" />
     <ClInclude Include="src\random.h" />
     <ClInclude Include="src\rectangle.h" />
     <ClInclude Include="src\renderer.h" />

@@ -34,6 +34,8 @@ public:
 	void addComponent(Component* component);
 	void removeComponent(Component* component);
 
+	Vector2 getForward() const;
+
 private:
 	Game& game;
 	ActorState state;
