@@ -7,7 +7,7 @@
 
 Laser::Laser() :
 	Actor(),
-	deathTimer(1.0f),
+	deathTimer(800.0f),
 	collision(nullptr)
 {
 	new SpriteComponent(this, Assets::getTexture("laser"));
