@@ -150,6 +150,25 @@ void Game::removeActor(Actor* actor)
 	}
 }
 
+std::vector<Astroid*>& Game::getAstroids()
+{
+	return astroids;
+}
+
+void Game::addAstroid(Astroid* astroid)
+{
+	astroids.emplace_back(astroid);
+}
+
+void Game::removeAstroid(Astroid* astroid)
+{
+	auto iter = std::find(std::begin(astroids), std::end(astroids), astroid);
+	if (iter != astroids.end())
+	{
+		astroids.erase(iter);
+	}
+}
+
 void Game::render()
 {
 	renderer.beginDraw();
@@ -171,6 +190,7 @@ void Game::load()
 	Assets::loadTexture(renderer, "../res/textures/Stars.png", "stars");
 	Assets::loadTexture(renderer, "../res/textures/Astroid.png", "astroid");
 	Assets::loadTexture(renderer, "../res/textures/Ship.png", "ship");
+	Assets::loadTexture(renderer, "../res/textures/Laser.png", "laser");
 
 	// Create a Actor that will contain the SpriteComponent
 	//Actor* actor = new Actor();

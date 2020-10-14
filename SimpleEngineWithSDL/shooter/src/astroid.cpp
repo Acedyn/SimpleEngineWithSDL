@@ -5,6 +5,7 @@
 #include "spriteComponent.h"
 #include "moveComponent.h"
 #include "assets.h"
+#include "game.h"
 
 Astroid::Astroid() : Actor()
 {
@@ -15,4 +16,15 @@ Astroid::Astroid() : Actor()
 	SpriteComponent* sc = new SpriteComponent(this, Assets::getTexture("astroid"));
 	MoveComponent* mc = new MoveComponent(this);
 	mc->setForwardSpeed(0.1f);
+
+	collision = new CircleCollisionComponent(this);
+	collision->setRadius(40.0f);
+
+
+	getGame().addAstroid(this);
+}
+
+Astroid::~Astroid()
+{
+	getGame().removeAstroid(this);
 }

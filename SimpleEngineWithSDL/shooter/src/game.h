@@ -5,6 +5,7 @@
 #include "actor.h"
 #include "timer.h"
 #include "spriteComponent.h"
+#include "astroid.h"
 #include <vector>
 
 class Game
@@ -39,6 +40,10 @@ public:
 	void addActor(Actor* actor);
 	void removeActor(Actor* actor);
 
+	std::vector<Astroid*>& getAstroids();
+	void addAstroid(Astroid* astroid);
+	void removeAstroid(Astroid* astroid);
+
 private:
 	void processInput();
 	void update(float dt);
@@ -51,5 +56,7 @@ private:
 	bool isUpdatingActors;
 	std::vector<Actor*>  actors;
 	std::vector<Actor*> pendingActors;
+
+	std::vector<Astroid*> astroids;
 
 };
