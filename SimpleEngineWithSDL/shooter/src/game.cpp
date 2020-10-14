@@ -183,7 +183,7 @@ void Game::load()
 		&Assets::getTexture("stars") };
 	Actor* backgroundClose = new Actor;
 	BackgroundSpriteComponent* backgroundCloseSprite = new BackgroundSpriteComponent(backgroundClose, backgroundCloseTextures, 50);
-	backgroundCloseSprite->setScrollSpeed(-100.0f);
+	backgroundCloseSprite->setScrollSpeed(-0.2f);
 
 	//Stars
 	std::vector<Texture*> backgroundFarTextures{
@@ -191,7 +191,7 @@ void Game::load()
 		&Assets::getTexture("farback02") };
 	Actor* backgroundFar = new Actor;
 	BackgroundSpriteComponent* backgroundFarSprite = new BackgroundSpriteComponent(backgroundFar, backgroundFarTextures);
-	backgroundFarSprite->setScrollSpeed(-200.0f);
+	backgroundFarSprite->setScrollSpeed(-0.2f);
 
 }
 
