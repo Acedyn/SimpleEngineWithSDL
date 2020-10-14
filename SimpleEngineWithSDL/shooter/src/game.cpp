@@ -4,6 +4,7 @@
 #include "animSpriteComponent.h"
 #include "spriteComponent.h"
 #include "backgroundSpriteComponent.h"
+#include "astroid.h"
 #include <string>
 
 bool Game::initialize()
@@ -160,6 +161,7 @@ void Game::load()
 	Assets::loadTexture(renderer, "../res/textures/Farback01.png", "farback01");
 	Assets::loadTexture(renderer, "../res/textures/Farback02.png", "farback02");
 	Assets::loadTexture(renderer, "../res/textures/Stars.png", "stars");
+	Assets::loadTexture(renderer, "../res/textures/Astroid.png", "astroid");
 
 	// Create a Actor that will contain the SpriteComponent
 	//Actor* actor = new Actor();
@@ -193,6 +195,11 @@ void Game::load()
 	BackgroundSpriteComponent* backgroundFarSprite = new BackgroundSpriteComponent(backgroundFar, backgroundFarTextures);
 	backgroundFarSprite->setScrollSpeed(-0.2f);
 
+	const int astroidNumber = 8;
+	for (int i = 0; i < astroidNumber; ++i)
+	{
+		new Astroid;
+	}
 }
 
 void Game::unload()
